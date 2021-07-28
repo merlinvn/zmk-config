@@ -15,6 +15,7 @@
 #define SYMS    4
 #define NUMS    5
 #define FN      6
+#define MEDIA   7
 
 / {
       behaviors {
@@ -37,7 +38,7 @@
    &kp TAB   &kp Q &kp W &kp F &kp P &kp B   &kp J &kp L  &kp U     &kp Y   &kp SQT  &kp BSPC
    &kp LCTRL &kp A &kp R &kp S &kp T &kp G   &kp M &kp N  &kp E     &kp I   &kp O &kp SQT
    &kp LSHFT &hm LGUI Z &hm LALT X &hm LCTRL C &hm LSHFT D &kp V   &kp K &hm RSHFT H  &hm RCTRL COMMA &hm LALT DOT &hm RGUI FSLH &kp RSHFT
-                  &kp TAB &lt NAV ESC &mt LSHFT SPACE   &mt RSHFT BSPC &lt SYMS RET &lt FN DEL
+                  &lt MEDIA TAB &mt LSHFT ESC &lt NAV SPACE   &lt SYMS BSPC &mt RSHFT RET &lt FN DEL
                         >;
                 };
 
@@ -89,9 +90,6 @@
 // | CTRL |  ;  |  :  |  (  |  (  |  -  |   |  +  |  <  |  >  |  _  | RET |  NO   |
 // | SHFT |     |     |     |     |     |   |  _  |  +  |  [  |  ]  |  \  |  ~   | // TODO: Fix this row when &mkp is committed
 //                    | GUI |     | SPC |   | ENT |     | ALT |
-//&kp LSHFT &kp GRAVE &kb BSLH   &kp LBKT  &kp RBKT &kb EQUAL       &kp PIPE   &hm RSHFT TILDE &hm RCTRL COMMA &hm LALT DOT &hm RGUI QMARK &trans
-//   &kp LCTRL &kp SEMI  &kp COLON  &kp LPAR  &kp RPAR &kp MINUS       &kp PLUS  &kp LT     &kp GT    &kp UNDER &kp RET &trans
-//   &kp LSHFT &kp GRAVE &kb BSLH   &kp LBKT  &kp RBKT &kb EQUAL       &kp PIPE  &kp TILDE  &kp COMMA &kp DOT   &kp QMARK &trans
                         bindings = <
    &kp  ESC  &kp EXCL  &kp AT     &kp LBRC  &kp RBRC &kp PRCNT       &kp SQT   &kp CARET  &kp AMPS  &kp STAR  &kp DQT &trans
    &kp LCTRL &kp SEMI  &kp COLON  &kp LPAR  &kp RPAR &kp MINUS       &kp PLUS  &kp LT     &kp GT    &kp UNDER &kp RET &trans
@@ -125,6 +123,20 @@
    &trans &kp F11 &kp F4 &kp F5 &kp F6 &trans &trans &trans &trans &trans &trans &trans 
    &trans &kp F12 &kp F1 &kp F2 &kp F3 &trans &trans &kp RSHFT &kp RCTRL &kp LALT &kp RGUI &trans 
                                    &kp TAB &kp K_APP &kp SPACE   &trans &trans &trans
+                        >;
+                };
+
+                MEDIA_layer {
+// -----------------------------------------------------------------------------------------
+// |  ESC |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
+// | CTRL |     |     |     |     |     |   |  -  |  =  |  {  |  }  | "|" |  `   |
+// | SHFT |     |     |     |     |     |   |  _  |  +  |  [  |  ]  |  \  |  ~   | // TODO: Fix this row when &mkp is committed
+//                    | GUI |     | SPC |   | ENT |     | ALT |
+                        bindings = <
+   &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans 
+   &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans 
+   &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans 
+                                  &trans &trans &trans &trans &trans &trans
                         >;
                 };
         };
