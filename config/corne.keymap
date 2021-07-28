@@ -36,7 +36,7 @@
                         bindings = <
    &kp TAB   &kp Q &kp W &kp F &kp P &kp B   &kp J &kp L  &kp U     &kp Y   &kp SQT  &kp BSPC
    &kp LCTRL &kp A &kp R &kp S &kp T &kp G   &kp M &kp N  &kp E     &kp I   &kp O &kp SQT
-   &kp LSHFT &hm LGUI Z &hm LALT X &hm LCTRL C &hm LSHFT D &kp V   &kp K &hm RSHFT H  &hm RCTRL COMMA &hm LALT DOT &hm LGUI FSLH &kp RSHFT
+   &kp LSHFT &hm LGUI Z &hm LALT X &hm LCTRL C &hm LSHFT D &kp V   &kp K &hm RSHFT H  &hm RCTRL COMMA &hm LALT DOT &hm RGUI FSLH &kp RSHFT
                   &kp TAB &lt NAV ESC &mt LSHFT SPACE   &mt RSHFT BSPC &kp RET &kp DEL
                         >;
                 };
@@ -76,9 +76,9 @@
 // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp ESC    &kp N7  &kp N5  &kp N3  &kp N1  &kp N9         &kp N0   &kp N2   &kp N4 &kp N6  &kp N8 &kp BSPC
+   &kp ESC    &kp N7  &kp N5  &kp N3  &kp N1  &kp N9         &kp N0   &kp N2   &kp N4 &kp N6  &kp N8 &trans
    &bt BT_CLR &trans  &trans  &trans  &trans  &trans         &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp CAPS &trans
-   &kp LSHFT  &LGUI   &LALT   &LCTRL  &LSHFT  &trans         &kp HOME &hm RSHFT PG_DN &hm RCTRL PG_UP &hm LALT END  &hm RGUI INS &trans
+   &kp LSHFT  &kp LGUI   &kp LALT   &kp LCTRL  &kp LSHFT  &trans         &kp HOME &hm RSHFT PG_DN &hm RCTRL PG_UP &hm LALT END &hm RGUI INS &trans
                              &trans   &trans  &trans         &kp BSPC &kp RET  &kp DEL
                         >;
                 };
