@@ -1,0 +1,22 @@
+#define str(s) #s
+
+#define MACRO(NAME, BINDINGS) \
+  macro_##NAME: macro_##NAME { \
+    compatible = "zmk,behavior-macro"; \
+    label = str(NAME); \
+    #binding-cells = <0>; \
+    bindings = <BINDINGS>; \
+  };
+
+MACRO(angle_brackets, &kp LESS_THAN &kp GREATER_THAN &kp LEFT)
+MACRO(brackets, &kp LEFT_BRACKET &kp RIGHT_BRACKET &kp LEFT)
+MACRO(braces, &kp LBRC &kp RBRC &kp LEFT)
+MACRO(parentheses, &kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp LEFT)
+MACRO(dqt, &kp DQT &kp DQT &kp LEFT)
+MACRO(sqt, &kp SQT &kp SQT &kp LEFT)
+MACRO(code_fence, &kp GRAVE &kp GRAVE &kp GRAVE)
+
+MACRO(double_pipe, &kp PIPE &kp PIPE &kp SPACE)
+MACRO(double_dash, &kp MINUS &kp MINUS)
+MACRO(double_ampersand, &kp AMPERSAND &kp AMPERSAND &kp SPACE)
+MACRO(shell_command, &kp DOLLAR &kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp LEFT)
