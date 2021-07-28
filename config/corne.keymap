@@ -95,7 +95,7 @@
                         bindings = <
    &kp  ESC  &kp EXCL  &kp AT     &kp LBRC  &kp RBRC &kp PRCNT       &kp SQT   &kp CARET  &kp AMPS  &kp STAR  &kp DQT &trans
    &kp LCTRL &kp SEMI  &kp COLON  &kp LPAR  &kp RPAR &kp MINUS       &kp PLUS  &kp LT     &kp GT    &kp UNDER &kp RET &trans
-   &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans 
+   &kp LSHFT &kp GRAVE &kb BSLH   &kp LBKT  &kp RBKT &kb EQUAL       &kp PIPE  &kp TILDE  &kp COMMA &kp DOT   &kp QMARK &trans
                                   &kp HASH  &kp DLLR &kp SPACE       &trans    &trans     &trans
                         >;
                 };
