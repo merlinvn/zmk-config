@@ -37,7 +37,7 @@
    &kp TAB   &kp Q &kp W &kp F &kp P &kp B   &kp J &kp L  &kp U     &kp Y   &kp SQT  &kp BSPC
    &kp LCTRL &kp A &kp R &kp S &kp T &kp G   &kp M &kp N  &kp E     &kp I   &kp O &kp SQT
    &kp LSHFT &hm LGUI Z &hm LALT X &hm LCTRL C &hm LSHFT D &kp V   &kp K &hm RSHFT H  &hm RCTRL COMMA &hm LALT DOT &hm RGUI FSLH &kp RSHFT
-                  &kp TAB &lt NAV ESC &mt LSHFT SPACE   &mt RSHFT BSPC &lt SYMS RET &kp DEL
+                  &kp TAB &lt NAV ESC &mt LSHFT SPACE   &mt RSHFT BSPC &lt SYMS RET &lt FN DEL
                         >;
                 };
 
@@ -107,10 +107,10 @@
 // | SHFT |     |     |     |     |     |   |  _  |  +  |  [  |  ]  |  \  |  ~   | // TODO: Fix this row when &mkp is committed
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans 
-   &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans 
-   &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans 
-                                   &trans &trans &trans   &trans &trans &trans
+   &trans &trans &trans &trans &trans &trans                   &kp MINUS &kp N7 &kp N8 &kp N9 &kp STAR &trans 
+   &trans &trans &trans &trans &trans &trans                   &kp PLUS  &kp N4 &kp N5 &kp N6 &kp RET &trans 
+   &trans &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT &trans      &kp EQUAL &kp N1 &kp N2 &kp N3 &kp FSLH &trans 
+                                   &trans &trans &trans   &trans &kp N0 &kp DOT
                         >;
                 };
 
@@ -121,10 +121,10 @@
 // | SHFT |     |     |     |     |     |   |  _  |  +  |  [  |  ]  |  \  |  ~   | // TODO: Fix this row when &mkp is committed
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans 
-   &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans 
-   &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans 
-                                   &trans &trans &trans   &trans &trans &trans
+   &trans &kp F10 &kp F7 &kp F8 &kp F9 &kp PSCRN &trans &trans &trans &trans &trans &trans 
+   &trans &kp F11 &kp F4 &kp F5 &kp F6 &trans &trans &trans &trans &trans &trans &trans 
+   &trans &kp F12 &kp F1 &kp F2 &kp F3 &trans &trans &kp RSHFT &kp RCTRL &kp LALT &kp RGUI &trans 
+                                   &kp TAB &kp K_APP &kp SPACE   &trans &trans &trans
                         >;
                 };
         };
