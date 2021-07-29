@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
 
 #define DEFAULT 0
 #define QWERTY  1
@@ -188,7 +189,7 @@
 // | SHFT |     |     |     |     |     |   |  _  |  +  |  [  |  ]  |  \  |  ~   | // TODO: Fix this row when &mkp is committed
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &reset &reset &none &none &none &none &none &none &none &none &bootloader &bootloader 
+   &reset &reset &out OUT_USB &out OUT_BLE &out OUT_TOG &none &none &none &none &none &bootloader &bootloader 
    &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none &none &none &none &none &none 
    &none &bt BT_CLR &none &bt BT_PRV &bt BT_NXT &none &none &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT &none 
                                &trans &trans &trans &kp C_PP &kp C_STOP &kp C_MUTE 
