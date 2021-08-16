@@ -92,7 +92,7 @@
                 default_layer {
                         bindings = <
    &kp TAB   &kp Q &kp W &kp F &kp P &kp B   &kp J &kp L  &kp U     &kp Y   &kp SQT  &kp BSPC
-   &kp LCTRL &kp A &kp R &kp S &lt NUMS T &kp G   &kp M &kp N  &kp E     &kp I   &kp O &kp SQT
+   &kp LCTRL &kp A &kp R &kp S &kp T &kp G   &kp M &kp N  &kp E     &kp I   &kp O &kp SQT
    &kp LSHFT &hm LGUI Z &hm LALT X &hm LCTRL C &hm LSHFT D &kp V   &kp K &hm RSHFT H  &hm RCTRL COMMA &hm LALT DOT &hm RGUI FSLH &kp RSHFT
                   &lt MEDIA TAB &mt LSHFT ESC &lt NAV SPACE   &lt SYMS BSPC &mt RSHFT RET &lt FN DEL
                         >;
@@ -129,8 +129,8 @@
                 NAV_layer {
 // -----------------------------------------------------------------------------------------
 // |  ESC |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
+// | BTCLR|     |     |     |     |     |   | LFT | DWN |  UP | RGT |     |      |
+// | SHFT |     |     |     |     |     |   | HOM | PDN | PUP | END |     |      |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
    &none  &kp N7  &kp N5  &kp N3  &kp N1  &kp N9                 &kp N0   &kp N2   &kp N4 &kp N6  &kp N8 &none
@@ -142,10 +142,10 @@
 
                 SYMS_layer {
 // -----------------------------------------------------------------------------------------
-// |  ESC |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |  ;  |  :  |  (  |  (  |  -  |   |  +  |  <  |  >  |  _  | RET |  NO   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  [  |  ]  |  \  |  ~   | // TODO: Fix this row when &mkp is committed
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+// |  ESC |  !  |  @  |  {  |  }  |  %  |   |  '  |  ^  |  &  |  *  |  "  | BKSP |
+// | CTRL |  ;  |  :  |  (  |  )  |  -  |   |  +  |  <  |  >  |  _  | RET |  NO   |
+// | SHFT |  `  |  \  |  [  |  ]  |  =  |   |  |  |  ~  |  ,  |  .  |  ?  |  ~   | // TODO: Fix this row when &mkp is committed
+//                    |  $  |  #  | SPC |   |     |     |     |
                         bindings = <
    &none  &kp EXCL  &kp AT     &kp LBRC  &kp RBRC &kp PRCNT       &kp SQT   &kp CARET  &kp AMPS  &kp STAR  &kp DQT &none
    &none &kp SEMI  &kp COLON  &kp LPAR  &kp RPAR &kp MINUS       &kp PLUS  &kp LT     &kp GT    &kp UNDER &kp RET &none
@@ -156,10 +156,10 @@
 
                 NUMS_layer {
 // -----------------------------------------------------------------------------------------
-// |  ESC |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  {  |  }  | "|" |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  [  |  ]  |  \  |  ~   | // TODO: Fix this row when &mkp is committed
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+// |  ESC |     |     |     |     |     |   |  -  |  7  |  8  |  9  |  *  | BKSP |
+// | CTRL |     |     |     |     |     |   |  +  |  4  |  5  |  6  | RET |  `   |
+// | SHFT |     |     |     |     |     |   |  =  |  1  |  2  |  3  |  /  |  ~   | // TODO: Fix this row when &mkp is committed
+//                    |     | LSH | SPC |   | BSP |  0  |  .  |
                         bindings = <
    &none &none &none &none &none &none                   &kp MINUS &kp N7 &kp N8 &kp N9 &kp STAR &none 
    &none &none &none &none &trans &none                   &kp PLUS  &kp N4 &kp N5 &kp N6 &kp RET &none 
@@ -184,10 +184,10 @@
 
                 MEDIA_layer {
 // -----------------------------------------------------------------------------------------
-// |  ESC |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  {  |  }  | "|" |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  [  |  ]  |  \  |  ~   | // TODO: Fix this row when &mkp is committed
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+// |  ESC |  RS | USB |  BT | TOG |     |   |     |     |     |     |     | BKSP |
+// | CTRL | BT0 | BT1 | BT2 | BT3 | BT4 |   |     |     |     |     |     |  `   |
+// | SHFT | BTC |     |  BV |  BN |     |   |     | PRV | VDN | VUP | NXT |  ~   | // TODO: Fix this row when &mkp is committed
+//                    |     |     |     |   | PLA | STP | MTE |
                         bindings = <
    &reset &reset &out OUT_USB &out OUT_BLE &out OUT_TOG &none &none &none &none &none &bootloader &bootloader 
    &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none &none &none &none &none &none 
