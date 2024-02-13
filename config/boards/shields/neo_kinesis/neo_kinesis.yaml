@@ -1,0 +1,8 @@
+file_format: "1"
+id: neo_kinesis
+name: NEO_KINESES
+type: shield
+url: https://github.com/merlinvn
+requires: [pro_micro]
+features:
+  - keys

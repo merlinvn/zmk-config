@@ -1,0 +1,133 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+#include "../../../../zmk-nodefree-config/helper.h"
+#include "./fingers.dtsi"
+
+#include "../../../merlinvn/config.dtsi"
+#include "../../../merlinvn/macros.dtsi"
+#include "../../../merlinvn/behaviors.dtsi"
+#include "../../../merlinvn/combos.dtsi"
+#include "../../../merlinvn/mouse.dtsi"
+#include "../../../merlinvn/keymap.dtsi"
+
+#define BT(n) BT_SEL n
+
+//  0  - 5  6  - 11
+//  12 - 17 18 - 23
+//  24 - 29 30 - 35
+//  36 - 41 42 - 47
+//  48 - 51 52 - 55
+//  56 - 61 62 - 67
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+
+            bindings = <
+    &kp EQUAL   &kp N1      &kp N2     &kp N3     &kp N4    &kp N5            &kp N6    &kp N7     &kp N8     &kp N9      &kp N0      &kp DEL
+    &kp TAB     TL_MAIN    TR_MAIN    &kp BSLH
+    &kp ESC     ML_MAIN    MR_MAIN    &kp RET
+    &sk LSHFT   BL_MAIN    BR_MAIN    &sk RSHFT
+               &kp GRAVE   &kp INS    &kp LEFT  &kp RIGHT                               &kp DOWN     &kp UP   &kp LBKT   &kp RBKT
+                                 &kp LGUI   &kp LALT   &kp HOME                         &kp PG_UP &kp RCTL      &kp RGUI
+                           &lt NAV_L SPACE  &sl MOU_L  &kp END                          &kp PG_DN &sl FUN_L     &lt SYM_L E
+            >;
+        };
+
+        qwerty_layer {
+
+            bindings = <
+    &kp EQUAL  &kp N1   &kp N2   &kp N3    &kp N4    &kp N5            &kp N6    &kp N7    &kp N8    &kp N9    &kp N0   &kp MINUS
+    &kp TAB    &kp Q    &kp W    &kp E     &kp R     &kp T             &kp Y     &kp U     &kp I     &kp O     &kp P    &kp BSLH
+    &kp ESC    &kp A    &kp S    &kp D     &kp F     &kp G             &kp H     &kp J     &kp K     &kp L     &kp SEMI &kp SQT
+    &kp LSHIFT &kp Z    &kp X    &kp C     &kp V     &kp B             &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH &kp RCTRL
+             &kp GRAVE  &kp INS  &kp LEFT  &kp RIGHT                             &kp DOWN  &kp UP    &kp LBKT  &kp RBKT
+                                 &kp LCTRL &kp LALT  &kp HOME          &kp PG_UP &kp LALT  &kp RGUI
+                                 &kp SPACE  &lt NAV_L DEL  &kp END     &kp PG_DN &kp RET   &kp BSPC
+            >;
+        };
+
+        vietnamese_layer {
+
+            bindings = <
+    &kp EQUAL  &kp N1   &kp N2   &kp N3    &kp N4    &kp N5            &kp N6    &kp N7    &kp N8    &kp N9    &kp N0   &kp MINUS
+    &kp TAB    &kp Q    &kp W    &kp E     &kp R     &kp T             &kp Y     &kp U     &kp I     &kp O     &kp P    &kp BSLH
+    &kp ESC    &kp A    &kp S    &kp D     &kp F     &kp G             &kp H     &kp J     &kp K     &kp L     &kp SEMI &kp SQT
+    &kp LSHIFT &kp Z    &kp X    &kp C     &kp V     &kp B             &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH &kp RCTRL
+             &kp GRAVE  &kp INS  &kp LEFT  &kp RIGHT                             &kp DOWN  &kp UP    &kp LBKT  &kp RBKT
+                                 &kp LCTRL  &kp LALT  &kp HOME          &kp PG_UP &kp LALT  &kp RGUI
+                                 &kp SPACE  &lt NAV_L DEL  &kp END      &kp PG_DN &kp RET   &kp BSPC
+            >;
+        };
+
+        nav_layer {
+
+            bindings = <
+    &none   &kp LA(N1)  &kp LA(N2) &kp LA(N3)       &kp LA(N4)   &kp LA(N5)           &kp LA(N6)   &kp LA(N7) &kp LA(N8) &kp LA(N9)    &kp LA(N0)  &none
+    &none   TL_NAV      TR_NAV     &none
+    &none   ML_NAV      MR_NAV     &kp RET
+    &none   BL_NAV      BR_NAV     &none
+            &none       &none    &none  &none                                          &none     &none       &none         &none
+                                 &none  &none  &none                                  &none  &none  &none
+                                 &trans  &trans  &none                                &none  &sk HYPR &kp BSPC
+            >;
+        };
+
+        number_layer {
+
+            bindings = <
+    &none  &none     &none     &none      &none     &none                 &none         &none     &kp EQUAL  &kp KP_MULTIPLY  &kp KP_DIVIDE &none
+    &none  TL_NUM     TR_NUM  &kp COMMA
+    &none  ML_NUM     MR_NUM   &kp RET
+    &none  BL_NUM     BR_NUM   &none
+           &none     &none     &none      &none                                         &kp DOWN  &kp UP     &kp COMMA    &kp RET
+                                 &none  &none  &none             &none  &none      &none
+                                 &kp SPACE  &sk LSHFT  &none        &none  &kp EQUAL  &kp N0
+            >;
+        };
+
+        sym_layer {
+
+            bindings = <
+    &none  &none     &none      &none      &none     &none                 &none      &none      &none     &none      &none      &none
+    &none  TL_SYM    TR_SYM     &none
+    &none  ML_SYM    MR_SYM     &kp RET
+    &none  BL_SYM    BR_SYM     &none
+           &none     &none     &none      &none                                    &none  &none  &none  &none
+                                 &none   &none  &none        &none  &none   &none
+                              &kp SPACE  &trans  &none        &none  &none   &trans
+            >;
+        };
+
+        fn_layer {
+            bindings = <
+    &bt BT_CLR  &bt BT(0)  &bt BT(1)  &bt BT(2)  &bt BT(3)  &bt BT(4)                &none  &out OUT_TOG  &out OUT_BLE  &out OUT_USB  &sys_reset    &bootloader
+    &none  TL_FUN                 TR_FUN      &none
+    &none  ML_FUN                 MR_FUN      &none
+    &none  BL_FUN                 BR_FUN      &none
+           &none     &none     &none      &none                                         &kp C_PLAY_PAUSE &kp C_PREV &kp C_NEXT &kp C_STOP
+                                 &none  &none  &none            &none  &none  &none
+                                &kp SPACE  &trans  &none        &none  &trans  &none
+            >;
+        };
+
+        mouse_layer {
+
+            bindings = <
+    &none  &none     &none     &none      &none     &none                 &none  &none  &none   &none  &none  &none
+    &none  TL_MOU    TR_MOU     &none
+    &none  ML_MOU    MR_MOU     &none
+    &none  BL_MOU    BR_MOU     &none
+           &none     &none     &none       &none                                  &none  &none  &none  &none
+                                 &none     &none  &none                     &none  &none  &none
+                                 &kp SPACE &trans  &none                    &none  &mkp RCLK  &mkp LCLK
+            >;
+        };
+
+    };
+};

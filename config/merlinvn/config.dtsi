@@ -1,0 +1,40 @@
+#define BASE_L 0
+#define QW_L 1
+#define VI_L 2
+#define NAV_L 3
+#define NUM_L 4
+#define SYM_L 5
+#define FUN_L 6
+#define MOU_L 7
+#define MED_L 8
+
+#define QUICK_TAP_MS 175
+
+&sl { 
+  release-after-ms = <500>;
+  ignore-modifiers;
+};
+
+&sk {
+    release-after-ms = <500>;
+    quick-release;
+};
+
+&lt {  // layer-tap config
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+};
+
+&caps_word {
+    /delete-property/ ignore-modifiers;
+  continue-list = <UNDERSCORE MINUS BSPC LSHFT RSHFT DELETE>;
+};
+
+&key_repeat {
+    usage-pages = <HID_USAGE_KEY HID_USAGE_CONSUMER>;
+};
+
+&num_word {  // num-word, requires PR #1441
+    layers = <NUM_L>;
+};

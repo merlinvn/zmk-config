@@ -1,0 +1,83 @@
+#define MEH LS(LA(LCTRL))
+#define HYPR LG(LS(LA(LCTRL)))
+
+// main layer
+#define TL_MAIN       &kp Q             &kp W              &kp F              &kp P              &kp B
+#define ML_MAIN       &hml LGUI A       &hml LALT R        &hml LCTRL S       &hml LSHFT T       &kp G
+#define BL_MAIN       &kp SQT           &kp X              &kp C              &lt NUM_L D        &kp V
+#define TR_MAIN       &kp Z             &kp L              &kp U              &kp Y              &kp RET
+#define MR_MAIN       &kp M             &hmr RSHFT N       &hmr RCTRL H       &hmr LALT I        &hmr RGUI O
+#define BR_MAIN       &kp FSLH          &kp J              &kp K              &kp COMMA          &kp DOT
+
+#define THUMBL_MAIN   &sl MOU_L         &lt NAV_L SPACE
+#define THUMBR_MAIN   &lt SYM_L E       &sl FUN_L
+
+// nav layer
+#define TL_NAV        &gui_tab          &alt_tab           &kp LS(LC(TAB))    &kp LC(TAB)        &gui_grave
+#define ML_NAV        &sk LGUI          &sk LALT           &sk LCTRL          &sk LSHFT          &sk HYPR 
+#define BL_NAV        &kp LG(SPACE)     &kp LA(SPACE)      &kp LC(SPACE)      &kp LS(SPACE)      &kp LA(LC(SPACE))
+#define TR_NAV        &kp INS           &kp HOME           &kp UARW           &kp END            &kp RET
+#define MR_NAV        &kp BSPC          &kp LARW           &kp DARW           &kp RARW           &caps_word
+#define BR_NAV        &kp DEL           &kp PG_DN          &kp PG_UP          &kp K_APP          &kp CAPS
+
+//&sk LS(LA(LCTRL))  &sk LG(LS(LA(LCTRL)))
+//KC_MEH KC_HYPR
+
+#define THUMBL_NAV    &trans            &trans
+#define THUMBR_NAV    &lt MED_L BSPC    &sk HYPR
+
+// sym layer
+#define TL_SYM        &kp EXCL          &kp AT             &kp LBRC           &kp RBRC           &kp PRCNT
+#define ML_SYM        &hml LGUI SEMI    &hml LALT COLON    &hml LCTRL LPAR    &hml LSHFT RPAR    &kp EQUAL
+#define BL_SYM        &kp DQT           &kp PLUS           &kp LBKT           &kp RBKT           &kp BSLH
+#define TR_SYM        &kp SQT           &kp CARET          &kp AMPS           &kp DLLR           &kp RET
+#define MR_SYM        &kp PIPE          &hmr RSHFT LT      &hmr RCTRL GT      &hmr LALT MINUS    &hmr RGUI UNDER
+#define BR_SYM        &kp QMARK         &kp HASH           &kp STAR           &kp GRAVE          &kp TILDE
+
+#define THUMBL_SYM    &trans            &lt MED_L SPACE
+#define THUMBR_SYM    &trans            &trans
+
+// num layer
+#define TL_NUM        &none             &none       &none      &none       &none
+#define ML_NUM        &sk LGUI          &sk LALT    &sk LCTRL  &sk LSHFT   &none
+#define BL_NUM        &none             &none       &none      &trans      &none
+#define TR_NUM        &kp SLASH         &kp N7      &kp N8     &kp N9      &kp RET
+#define MR_NUM        &kp STAR          &kp N4      &kp N5     &kp N6      &kp PLUS
+#define BR_NUM        &kp MINUS         &kp N1      &kp N2     &kp N3      &kp DOT
+
+#define THUMBL_NUM    &sk LSHFT         &kp SPACE
+#define THUMBR_NUM    &kp N0            &kp EQUAL
+
+// fun layer
+#define TL_FUN        &kp F10     &kp F7      &kp F8       &kp F9          &kp PSCRN
+#define ML_FUN        &kp F11     &kp F4      &kp F5       &kp F6          &kp SLCK
+#define BL_FUN        &kp F12     &kp F1      &kp F2       &kp F3          &kp PAUSE_BREAK
+#define TR_FUN        &none       &kp C_PLAY_PAUSE  &kp C_PREV  &kp C_NEXT  &kp C_STOP
+#define MR_FUN        &none       &sk RSHFT   &sk RCTRL    &sk LALT        &sk RGUI
+#define BR_FUN        &none       &kp C_MUTE  &kp C_VOL_DN &kp C_VOL_UP    &none
+
+#define THUMBL_FUN    &trans      &kp SPACE
+#define THUMBR_FUN    &trans      &trans
+
+// med layer
+#define TL_MED        &none             &none              &none              &none              &none
+#define ML_MED        &bt BT_SEL 0      &bt BT_SEL 1       &bt BT_SEL 2       &bt BT_SEL 3       &bt BT_SEL 4
+#define BL_MED        &out OUT_TOG      &out OUT_BLE       &out OUT_USB       &none              &bt BT_CLR
+#define TR_MED        &none             &none              &none              &sys_reset         &bootloader
+#define MR_MED        &none             &none              &none              &none              &none
+#define BR_MED        &none             &none              &none              &none              &none
+
+#define THUMBL_MED    &trans            &trans
+#define THUMBR_MED    &trans            &trans
+
+
+// mouse layer
+#define TL_MOU        &none       &none        &none       &none      &none
+#define ML_MOU        &sk LGUI    &sk LALT     &sk LCTRL   &sk LSHFT  &none
+#define BL_MOU        &none       &none        &none       &none      &none
+#define TR_MOU        &none       U_WH_L       U_MS_U      U_WH_R     &none
+#define MR_MOU        &none       U_MS_L       U_MS_D      U_MS_R     &none
+#define BR_MOU        &none       U_WH_D       U_WH_U      &mkp MCLK  &none
+
+#define THUMBL_MOU    &trans      &none 
+#define THUMBR_MOU    &mkp LCLK   &mkp RCLK
