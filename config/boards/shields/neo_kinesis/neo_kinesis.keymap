@@ -74,7 +74,7 @@
     &none   BL_NAV      BR_NAV     &none
             &none       &none    &none  &none                                          &none     &none       &none         &none
                                  &none  &none  &none                                  &none  &none  &none
-                                 &trans  &trans  &none                                &none  &sk HYPR &kp BSPC
+                                 &trans  &trans  &none                                &none  &sk MEH &mo_sk SYM_L HYPR   
             >;
         };
 

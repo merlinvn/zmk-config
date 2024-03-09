@@ -1,5 +1,10 @@
 #define QUICK_TAP_MS 175
 
+ZMK_BEHAVIOR(mo_sk, hold_tap,  // left-hand HRMs
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    bindings = <&mo>, <&sk>;
+)
 
 ZMK_BEHAVIOR(hml, hold_tap,  // left-hand HRMs
     flavor = "balanced";

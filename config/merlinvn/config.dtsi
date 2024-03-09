@@ -10,6 +10,11 @@
 
 #define QUICK_TAP_MS 175
 
+#define MEH LS(LA(LCTRL))
+#define HYPR LG(LS(LA(LCTRL)))
+#define ME(key) LS(LA(LCTRL(key)))
+#define HP(key) LG(LS(LA(LCTRL(key))))
+
 &sl { 
   release-after-ms = <500>;
   ignore-modifiers;

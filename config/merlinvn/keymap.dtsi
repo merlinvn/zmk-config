@@ -1,6 +1,3 @@
-#define MEH LS(LA(LCTRL))
-#define HYPR LG(LS(LA(LCTRL)))
-
 // main layer
 #define TL_MAIN       &kp Q             &kp W              &kp F              &kp P              &kp B
 #define ML_MAIN       &hml LGUI A       &hml LALT R        &hml LCTRL S       &hml LSHFT T       &kp G
@@ -14,7 +11,7 @@
 
 // nav layer
 #define TL_NAV        &gui_tab          &alt_tab           &kp LS(LC(TAB))    &kp LC(TAB)        &gui_grave
-#define ML_NAV        &sk LGUI          &sk LALT           &sk LCTRL          &sk LSHFT          &sk HYPR 
+#define ML_NAV        &sk LGUI          &sk LALT           &sk LCTRL          &sk LSHFT          &none
 #define BL_NAV        &kp LG(SPACE)     &kp LA(SPACE)      &kp LC(SPACE)      &kp LS(SPACE)      &kp LA(LC(SPACE))
 #define TR_NAV        &kp INS           &kp HOME           &kp UARW           &kp END            &kp RET
 #define MR_NAV        &kp BSPC          &kp LARW           &kp DARW           &kp RARW           &caps_word
@@ -23,8 +20,8 @@
 //&sk LS(LA(LCTRL))  &sk LG(LS(LA(LCTRL)))
 //KC_MEH KC_HYPR
 
-#define THUMBL_NAV    &trans            &trans
-#define THUMBR_NAV    &lt MED_L BSPC    &sk HYPR
+#define THUMBL_NAV    &trans               &trans
+#define THUMBR_NAV    &mo_sk MED_L HYPR    &sk MEH
 
 // sym layer
 #define TL_SYM        &kp EXCL          &kp AT             &kp LBRC           &kp RBRC           &kp PRCNT
