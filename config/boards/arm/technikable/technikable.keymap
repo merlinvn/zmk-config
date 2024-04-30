@@ -13,7 +13,7 @@
 #define TBLE_MIT     true
 //#define TBLE_DUAL_2U true
 
-#include "../../../../zmk-nodefree-config/helper.h"
+#include "zmk-helpers/helper.h"
 #include "./fingers.dtsi"
 
 #define COMBO_TIMEOUT 70

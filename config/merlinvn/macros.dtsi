@@ -1,80 +1,75 @@
-
-/ {
-  macro {
-    ZMK_MACRO(qu_macro,
-      wait-ms = <30>;
-      tap-ms = <40>;
-      bindings = <&kp Q &kp U>;
-    )
-    ZMK_MACRO(ng_macro,
-      wait-ms = <30>;
-    tap-ms = <40>;
-    bindings = <&kp N &kp G>;
-    )
-    ZMK_MACRO(gh_macro,
-      wait-ms = <30>;
-    tap-ms = <40>;
-    bindings = <&kp G &kp H>;
-    )
-    ZMK_MACRO(nh_macro,
-      wait-ms = <30>;
-    tap-ms = <40>;
-    bindings = <&kp N &kp H>;
-    )
-    ZMK_MACRO(ngh_macro,
-      wait-ms = <30>;
-    tap-ms = <40>;
-    bindings = <&kp N &kp G &kp H>;
-    )
-    ZMK_MACRO(th_macro,
-      wait-ms = <30>;
-    tap-ms = <40>;
-    bindings = <&kp T &kp H>;
-    )
-    ZMK_MACRO(tr_macro,
-      wait-ms = <30>;
-    tap-ms = <40>;
-    bindings = <&kp T &kp R>;
-    )
-    ZMK_MACRO(ph_macro,
-      wait-ms = <30>;
-    tap-ms = <40>;
-    bindings = <&kp P &kp H>;
-    )
-    ZMK_MACRO(ch_macro,
-      wait-ms = <30>;
-    tap-ms = <40>;
-    bindings = <&kp C &kp H>;
-    )
-    ZMK_MACRO(uow_macro,
-      wait-ms = <30>;
-    tap-ms = <40>;
-    bindings = <&kp U &kp O &kp W>;
-    )
-    ZMK_MACRO(uoo_macro,
-      wait-ms = <30>;
-    tap-ms = <40>;
-    bindings = <&kp U &kp O &kp O>;
-    )
-    ZMK_MACRO(iee_macro,
-      wait-ms = <30>;
-    tap-ms = <40>;
-    bindings = <&kp I &kp E &kp E>;
-    )
-    ZMK_MACRO(yee_macro,
-      wait-ms = <30>;
-    tap-ms = <40>;
-    bindings = <&kp Y &kp E &kp E>;
-    )
-    ZMK_MACRO(owi_macro,
-      wait-ms = <30>;
-    tap-ms = <40>;
-    bindings = <&kp O &kp W &kp I>;
-    )
-    ZMK_MACRO(ooi_macro,
-      wait-ms = <30>;
-    tap-ms = <40>;
-    bindings = <&kp O &kp O &kp I>;
-    )
-  };
-};
+ZMK_BEHAVIOR(qu_macro, macro,
+  wait-ms = <30>;
+  tap-ms = <40>;
+  bindings = <&kp Q &kp U>;
+)
+ZMK_BEHAVIOR(ng_macro, macro,
+  wait-ms = <30>;
+tap-ms = <40>;
+bindings = <&kp N &kp G>;
+)
+ZMK_BEHAVIOR(gh_macro, macro,
+  wait-ms = <30>;
+tap-ms = <40>;
+bindings = <&kp G &kp H>;
+)
+ZMK_BEHAVIOR(nh_macro, macro,
+  wait-ms = <30>;
+tap-ms = <40>;
+bindings = <&kp N &kp H>;
+)
+ZMK_BEHAVIOR(ngh_macro, macro,
+  wait-ms = <30>;
+tap-ms = <40>;
+bindings = <&kp N &kp G &kp H>;
+)
+ZMK_BEHAVIOR(th_macro, macro,
+  wait-ms = <30>;
+tap-ms = <40>;
+bindings = <&kp T &kp H>;
+)
+ZMK_BEHAVIOR(tr_macro, macro,
+  wait-ms = <30>;
+tap-ms = <40>;
+bindings = <&kp T &kp R>;
+)
+ZMK_BEHAVIOR(ph_macro, macro,
+  wait-ms = <30>;
+tap-ms = <40>;
+bindings = <&kp P &kp H>;
+)
+ZMK_BEHAVIOR(ch_macro, macro,
+  wait-ms = <30>;
+tap-ms = <40>;
+bindings = <&kp C &kp H>;
+)
+ZMK_BEHAVIOR(uow_macro, macro,
+  wait-ms = <30>;
+tap-ms = <40>;
+bindings = <&kp U &kp O &kp W>;
+)
+ZMK_BEHAVIOR(uoo_macro, macro,
+  wait-ms = <30>;
+tap-ms = <40>;
+bindings = <&kp U &kp O &kp O>;
+)
+ZMK_BEHAVIOR(iee_macro, macro,
+  wait-ms = <30>;
+tap-ms = <40>;
+bindings = <&kp I &kp E &kp E>;
+)
+ZMK_BEHAVIOR(yee_macro, macro,
+  wait-ms = <30>;
+tap-ms = <40>;
+bindings = <&kp Y &kp E &kp E>;
+)
+ZMK_BEHAVIOR(owi_macro, macro,
+  wait-ms = <30>;
+tap-ms = <40>;
+bindings = <&kp O &kp W &kp I>;
+)
+ZMK_BEHAVIOR(ooi_macro, macro,
+  wait-ms = <30>;
+tap-ms = <40>;
+bindings = <&kp O &kp O &kp I>;
+)
