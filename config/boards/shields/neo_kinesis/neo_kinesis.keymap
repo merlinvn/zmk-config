@@ -35,7 +35,7 @@
     &sk LSHFT   BL_MAIN    BR_MAIN    &sk RSHFT
                &kp GRAVE   &kp INS    &kp LEFT  &kp RIGHT                               &kp DOWN     &kp UP   &kp LBKT   &kp RBKT
                                  &kp LGUI   &kp LALT   &kp HOME                         &kp PG_UP &kp RCTL      &kp RGUI
-                           &lt NAV_L SPACE  &sl MOU_L  &kp END                          &kp PG_DN &sl FUN_L     &lt SYM_L E
+                           &lt NAV_L SPACE  &kp MEH  &kp END                          &kp PG_DN &sl FUN_L     &lt SYM_L E
             >;
         };
 
@@ -68,13 +68,13 @@
         nav_layer {
 
             bindings = <
-    &none   &kp LA(N1)  &kp LA(N2) &kp LA(N3)       &kp LA(N4)   &kp LA(N5)           &kp LA(N6)   &kp LA(N7) &kp LA(N8) &kp LA(N9)    &kp LA(N0)  &none
+    &none   &kp ME(N1)  &kp ME(N2) &kp ME(N3)       &kp ME(N4)   &kp ME(N5)           &kp ME(N6)   &kp ME(N7) &kp ME(N8) &kp ME(N9)    &kp ME(N0)  &none
     &none   TL_NAV      TR_NAV     &none
     &none   ML_NAV      MR_NAV     &kp RET
     &none   BL_NAV      BR_NAV     &none
             &none       &none    &none  &none                                          &none     &none       &none         &none
                                  &none  &none  &none                                  &none  &none  &none
-                                 &trans  &trans  &none                                &none  &sk MEH &mo_sk SYM_L HYPR   
+                                 &trans  &trans  &none                                &none  &sk MEH &mo SYM_L
             >;
         };
 
@@ -87,7 +87,7 @@
     &none  BL_NUM     BR_NUM   &none
            &none     &none     &none      &none                                         &kp DOWN  &kp UP     &kp COMMA    &kp RET
                                  &none  &none  &none             &none  &none      &none
-                                 &kp SPACE  &sk LSHFT  &none        &none  &kp EQUAL  &kp N0
+                                 &mt LSHIFT SPACE  &kp MEH  &none        &none  &kp EQUAL  &kp N0
             >;
         };
 
@@ -112,7 +112,7 @@
     &none  BL_FUN                 BR_FUN      &none
            &none     &none     &none      &none                                         &kp C_PLAY_PAUSE &kp C_PREV &kp C_NEXT &kp C_STOP
                                  &none  &none  &none            &none  &none  &none
-                                &kp SPACE  &trans  &none        &none  &trans  &none
+                                &kp SPACE  &kp HYPR  &none        &none  &trans  &none
             >;
         };
 

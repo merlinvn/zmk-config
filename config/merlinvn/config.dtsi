@@ -12,8 +12,8 @@
 
 #define MEH LS(LA(LCTRL))
 #define HYPR LG(LS(LA(LCTRL)))
-#define ME(key) LS(LA(LCTRL(key)))
-#define HP(key) LG(LS(LA(LCTRL(key))))
+#define ME(key) LS(LA(LC(key)))
+#define HP(key) LG(LS(LA(LC(key))))
 
 &sl { 
   release-after-ms = <500>;
