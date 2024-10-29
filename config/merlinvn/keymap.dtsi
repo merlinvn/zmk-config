@@ -6,7 +6,7 @@
 #define MR_MAIN       &kp M             &hmr RSHFT N       &hmr RCTRL H       &hmr LALT I        &hmr RGUI O
 #define BR_MAIN       &kp FSLH          &kp J              &kp K              &kp COMMA          &kp DOT
 
-#define THUMBL_MAIN   &sl MOU_L         &lt NAV_L SPACE
+#define THUMBL_MAIN   &kp MEH           &lt NAV_L SPACE
 #define THUMBR_MAIN   &lt SYM_L E       &sl FUN_L
 
 // nav layer
@@ -20,8 +20,8 @@
 //&sk LS(LA(LCTRL))  &sk LG(LS(LA(LCTRL)))
 //KC_MEH KC_HYPR
 
-#define THUMBL_NAV    &trans               &trans
-#define THUMBR_NAV    &mo_sk MED_L HYPR    &sk MEH
+#define THUMBL_NAV    &trans            &trans
+#define THUMBR_NAV    &mo MED_L         &trans
 
 // sym layer
 #define TL_SYM        &kp EXCL          &kp AT             &kp LBRC           &kp RBRC           &kp PRCNT
@@ -42,18 +42,18 @@
 #define MR_NUM        &kp STAR          &kp N4      &kp N5     &kp N6      &kp PLUS
 #define BR_NUM        &kp MINUS         &kp N1      &kp N2     &kp N3      &kp DOT
 
-#define THUMBL_NUM    &sk LSHFT         &kp SPACE
+#define THUMBL_NUM    &kp MEH           &mt LSHFT SPACE
 #define THUMBR_NUM    &kp N0            &kp EQUAL
 
 // fun layer
 #define TL_FUN        &kp F10     &kp F7      &kp F8       &kp F9          &kp PSCRN
 #define ML_FUN        &kp F11     &kp F4      &kp F5       &kp F6          &kp SLCK
-#define BL_FUN        &kp F12     &kp F1      &kp F2       &kp F3          &kp PAUSE_BREAK
+#define BL_FUN        &kp F12     &kp F1      &kp F2       &lt NUM_L F3          &kp PAUSE_BREAK
 #define TR_FUN        &none       &kp C_PLAY_PAUSE  &kp C_PREV  &kp C_NEXT  &kp C_STOP
 #define MR_FUN        &none       &sk RSHFT   &sk RCTRL    &sk LALT        &sk RGUI
 #define BR_FUN        &none       &kp C_MUTE  &kp C_VOL_DN &kp C_VOL_UP    &none
 
-#define THUMBL_FUN    &trans      &kp SPACE
+#define THUMBL_FUN    &kp HYPR    &kp SPACE
 #define THUMBR_FUN    &trans      &trans
 
 // med layer
