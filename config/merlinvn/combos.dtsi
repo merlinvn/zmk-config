@@ -25,16 +25,16 @@ ZMK_COMBO(star_combo,        &kp STAR,              RT2 RT3,   BASE_L,   COMBO_T
 ZMK_COMBO(rbrace_combo,      &kp RBRC,              RT1 RT3,   BASE_L,   COMBO_TERM_SLOW)
 
 // home left start at 12
-ZMK_COMBO(tilde_combo,       &kp TILDE,              LM1 LM0,   BASE_L SYM_L NAV_L,   COMBO_TERM_FAST)
+ZMK_COMBO(tilde_combo,       &kp TILDE,              LM1 LM0,   BASE_L,   COMBO_TERM_FAST)
 ZMK_COMBO(esc_combo,         &hml LS(LCTRL) ESC,     LM2 LM1,   BASE_L SYM_L NAV_L,   COMBO_TERM_FAST)
 ZMK_COMBO(tab_combo,         &hml LA(LCTRL) TAB,     LM3 LM2,   BASE_L SYM_L NAV_L,   COMBO_TERM_FAST)
-ZMK_COMBO(lpa_combo,         &hml LS(LALT) LPAR,     LM1 LM3,   BASE_L SYM_L,         COMBO_TERM_SLOW)
+ZMK_COMBO(lpa_combo,         &hml LS(LALT) LPAR,     LM1 LM3,   BASE_L,         COMBO_TERM_SLOW)
 
 // home right
 ZMK_COMBO(equal_combo,       &kp EQUAL,              RM0 RM1,   BASE_L,               COMBO_TERM_FAST)
 ZMK_COMBO(colon_combo,       &hmr RS(RCTRL) COLON,   RM1 RM2,   BASE_L,               COMBO_TERM_FAST)
 ZMK_COMBO(bspc_combo,        &hmr RA(RCTRL) BSPC,    RM2 RM3,   BASE_L SYM_L NAV_L,   COMBO_TERM_FAST)
-ZMK_COMBO(rpa_combo,         &hmr RS(LALT) RPAR,     RM1 RM3,   BASE_L SYM_L NAV_L,   COMBO_TERM_SLOW)
+ZMK_COMBO(rpa_combo,         &hmr RS(LALT) RPAR,     RM1 RM3,   BASE_L,               COMBO_TERM_SLOW)
 
 // bottom left
 ZMK_COMBO(bslh_combo,        &kp BSLH,              LB0 LB1,   BASE_L,         COMBO_TERM_FAST)
