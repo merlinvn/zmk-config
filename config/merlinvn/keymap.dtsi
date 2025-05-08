@@ -13,9 +13,9 @@
 #define TL_NAV        &gui_tab          &alt_tab           &kp LS(LC(TAB))    &kp LC(TAB)        &gui_grave
 #define ML_NAV        &sk LGUI          &sk LALT           &sk LCTRL          &sk LSHFT          &none
 #define BL_NAV        &kp LG(SPACE)     &kp LA(SPACE)      &kp LC(SPACE)      &lm NUM_L LSHFT    &kp LA(LC(SPACE))
-#define TR_NAV        &kp INS           &kp HOME           &kp END            &kp BSPC           &kp RET
+#define TR_NAV        &kp INS           &kp HOME           &kp END            &kp BSPC            &kp RET
 #define MR_NAV        &kp LARW          &kp DARW           &kp UARW           &kp RARW           &caps_word
-#define BR_NAV        &kp DEL           &kp PG_DN          &kp PG_UP          &kp K_APP          &kp CAPS
+#define BR_NAV        &kp K_APP         &kp PG_DN          &kp PG_UP          &kp DEL            &kp CAPS
 
 #define THUMBL_NAV    &trans            &trans
 #define THUMBR_NAV    &mo MED_L         &trans
