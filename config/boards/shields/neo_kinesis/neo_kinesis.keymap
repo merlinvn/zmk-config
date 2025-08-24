@@ -34,7 +34,7 @@
     &kp ESC     ML_MAIN    MR_MAIN    &kp RET
     &sk LSHFT   BL_MAIN    BR_MAIN    &sk RSHFT
                &kp GRAVE   &kp INS    &kp LEFT  &kp RIGHT                               &kp DOWN     &kp UP   &kp LBKT   &kp RBKT
-                                 &kp LGUI   &kp LALT   &kp HOME                         &kp RALT &kp RCTL      &kp RGUI
+                                 &kp LGUI   &kp LALT   &kp HOME                         &kp RCTL &kp RALT      &kp RGUI
                            &lt NAV_L SPACE  &kp MEH  &kp END                          &kp GLOBE &sl FUN_L     &lt SYM_L E
             >;
         };
