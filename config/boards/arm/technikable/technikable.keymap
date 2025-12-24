@@ -77,11 +77,11 @@
             bindings = <
                 TL_MAIN      &none &none       TR_MAIN
                 ML_MAIN      &none &none       MR_MAIN
-                BL_MAIN      &none &none       BR_MAIN
+                BL_MAIN      &kp SPACE &kp RALT       BR_MAIN
 #ifdef TBLE_DUAL_2U
         &kp LCTRL  THUMBL_MAIN                                THUMBR_MAIN  &kp RCTRL
 #elif defined(TBLE_MIT)
-       &kp LCTRL   THUMBL_MAIN              &none             THUMBR_MAIN  &kp RCTRL
+       &kp LGUI   THUMBL_MAIN              &kp F1             THUMBR_MAIN  &kp RGUI
 #else
        &kp LCTRL  THUMBL_MAIN     &kp SPACE    &kp SPACE      THUMBR_MAIN  &kp RCTRL
 #endif
