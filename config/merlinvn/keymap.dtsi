@@ -13,8 +13,8 @@
 #define TL_NAV        &gui_tab          &alt_tab           &kp LS(LC(TAB))    &kp LC(TAB)        &gui_grave
 #define ML_NAV        &sk LGUI          &sk LALT           &sk LCTRL          &sk LSHFT          &none
 #define BL_NAV        &kp LG(SPACE)     &kp LS(LC(LA(X)))      &kp LS(LC(LA(C)))      &lm NUM_L LSHFT    &kp LS(LC(LA(SPACE)))
-#define TR_NAV        &kp INS           &kp HOME           &kp END            &kp BSPC            &kp RET
-#define MR_NAV        &kp LARW          &kp DARW           &kp UARW           &kp RARW           &caps_word
+#define TR_NAV        &kp INS           &kp HOME           &kp UARW           &kp END            &kp RET
+#define MR_NAV        &kp BSPC          &kp LARW           &kp DARW           &kp RARW           &caps_word
 #define BR_NAV        &kp K_APP         &kp PG_DN          &kp PG_UP          &kp DEL            &kp CAPS
 
 #define THUMBL_NAV    &trans            &trans
@@ -24,7 +24,7 @@
 #define TL_SYM        &kp EXCL          &kp AT             &kp LBRC           &kp RBRC           &kp PRCNT
 #define ML_SYM        &hml LGUI SEMI    &hml LALT COLON    &hml LCTRL LPAR    &hml LSHFT RPAR    &kp EQUAL
 #define BL_SYM        &kp DQT           &kp PLUS           &kp LBKT           &kp RBKT           &kp BSLH
-#define TR_SYM        &kp SQT           &kp CARET          &kp DLLR           &kp AMPS           &kp RET
+#define TR_SYM        &kp SQT           &kp CARET          &kp AMPS           &kp DLLR           &kp RET
 #define MR_SYM        &kp PIPE          &hmr RSHFT LT      &hmr RCTRL GT      &hmr LALT MINUS    &hmr RGUI UNDER
 #define BR_SYM        &kp QMARK         &kp HASH           &kp STAR           &kp GRAVE          &kp TILDE
 
