@@ -10,9 +10,9 @@
 #define THUMBR_MAIN   &lt SYM_L E       &sl FUN_L
 
 // nav layer
-#define TL_NAV        &gui_tab          &alt_tab           &kp LS(LC(TAB))    &kp LC(TAB)        &gui_grave
-#define ML_NAV        &sk LGUI          &sk LALT           &sk LCTRL          &sk LSHFT          &none
-#define BL_NAV        &kp LG(SPACE)     &kp LA(SPACE)      &kp LC(SPACE)      &lm NUM_L LSHFT    &kp LS(LC(LA(SPACE)))
+#define TL_NAV        &gui_tab          &alt_tab           &kp LS(LC(TAB))    &kp LC(TAB)        &kp LS(LC(LA(X)))
+#define ML_NAV        &sk LGUI          &sk LALT           &sk LCTRL          &sk LSHFT          &kp LG(SPACE)
+#define BL_NAV        &kp LG(Z)         &kp LG(X)          &kp LG(C)          &lm NUM_L LSHFT    &kp LG(V)
 #define TR_NAV        &kp INS           &kp HOME           &kp UARW           &kp END            &kp RET
 #define MR_NAV        &kp BSPC          &kp LARW           &kp DARW           &kp RARW           &caps_word
 #define BR_NAV        &kp K_APP         &kp PG_DN          &kp PG_UP          &kp DEL            &kp CAPS
