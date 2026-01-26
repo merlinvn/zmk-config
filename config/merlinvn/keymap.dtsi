@@ -17,7 +17,7 @@
 #define MR_NAV        &kp BSPC          &kp LARW           &kp DARW           &kp RARW           &caps_word
 #define BR_NAV        &kp K_APP         &kp PG_DN          &kp PG_UP          &kp DEL            &kp CAPS
 
-#define THUMBL_NAV    &trans            &trans
+#define THUMBL_NAV    &kp LS(LC(LA(SPACE)))            &trans
 #define THUMBR_NAV    &mo MED_L         &trans
 
 // sym layer
