@@ -13,7 +13,7 @@
 #define COMBO_TERM_SLOW 50
 
 // top left
-ZMK_COMBO(clear_combo,       &sys_reset,           LT1 LT0,   BASE_L,         COMBO_TERM_FAST)
+ZMK_COMBO(clear_combo,       &sys_reset,           LT1 LT0,   BASE_L SYM_L NAV_L,         COMBO_TERM_FAST)
 ZMK_COMBO(plus_combo,        &kp PLUS,              LT2 LT1,   BASE_L,         COMBO_TERM_FAST)
 ZMK_COMBO(qu_combo,          &qu_macro,             LT3 LT2,   BASE_L,         COMBO_TERM_FAST)
 ZMK_COMBO(lbrace_combo,      &kp LBRC,              LT3 LT1,   BASE_L,         COMBO_TERM_SLOW)
