@@ -23,7 +23,7 @@
         compatible = "zmk,keymap";
 
         neo_layer {
-            label = "NeoE";
+            display-name = "NeoE";
             bindings = <
                 TL_MAIN         TR_MAIN
                 ML_MAIN         MR_MAIN
@@ -33,7 +33,7 @@
         };
 
        qwerty_layer {
-            label = "QWERTY";
+            display-name = "QWERTY";
             bindings = <
                 &kp Q      &kp W      &kp E       &kp R          &kp T         &kp Y            &kp U          &kp I           &kp O        &kp P
                 &kp A      &kp S      &kp D       &kp F          &kp G         &kp H            &kp J          &kp K           &kp L        &kp SQT
@@ -43,7 +43,7 @@
         };
 
        vie_layer {
-            label = "TELEX";
+            display-name = "TELEX";
             bindings = <
                 &kp Q       &kp P       &kp M          &kp L           &kp B         &kp Z            &kp R           &kp E          &kp U      &kp FSLH
                 &kp I       &kp G       &kp N          &lt NUM_L H     &kp X         &kp F            &kp S           &kp A          &kp W         &kp O
@@ -53,7 +53,7 @@
         };
 
        nav_layer {
-            label = "Nav";
+            display-name = "Nav";
             bindings = <
                 TL_NAV         TR_NAV
                 ML_NAV         MR_NAV
@@ -63,7 +63,7 @@
         };
 
         num_layer {
-            label = "Num";
+            display-name = "Num";
             bindings = <
                 TL_NUM         TR_NUM
                 ML_NUM         MR_NUM
@@ -73,7 +73,7 @@
         };
 
         sym_layer {
-            label = "Sym";
+            display-name = "Sym";
             bindings = <
                 TL_SYM         TR_SYM
                 ML_SYM         MR_SYM
@@ -83,7 +83,7 @@
         };
 
         fun_layer {
-            label = "Fun";
+            display-name = "Fun";
             bindings = <
                 TL_FUN         TR_FUN
                 ML_FUN         MR_FUN
@@ -93,7 +93,7 @@
         };
 
         mouse_layer {
-            label = "Mouse";
+            display-name = "Mouse";
             bindings = <
                 TL_MOU         TR_MOU
                 ML_MOU         MR_MOU
@@ -103,7 +103,7 @@
         };
 
         media_layer {
-            label = "Media";
+            display-name = "Media";
             bindings = <
                 TL_MED         TR_MED
                 ML_MED         MR_MED
