@@ -12,9 +12,8 @@
 #     shield: reviung41
 #
 ---
+board: ["zaphod","technikable", "nice_nano"]
 include:
-  - board: planck@6.0.0//zmk
-  - board: corneish_zen_left@2.0.0//zmk
-  - board: corneish_zen_right@2.0.0//zmk
-  - board: glove80_lh
-  - board: glove80_rh
+  - board: zaphod
+  - board: nice_nano
+    shield: neo_kinesis
