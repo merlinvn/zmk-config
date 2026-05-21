@@ -19,7 +19,7 @@
 manifest:
   defaults:
     remote: urob
-    # revision: v0.3 # Pin ZMK version
+    revision: v0.3 # Pin ZMK version
 
   remotes:
     - name: urob
