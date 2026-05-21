@@ -6,7 +6,14 @@
 
 /dts-v1/;
 #include <nordic/nrf52840_qiaa.dtsi>
+#include <nordic/nrf52840_uf2_boot_mode.dtsi>
 #include <dt-bindings/zmk/matrix_transform.h>
+
+#include "technikable-layouts.dtsi"
+
+&technikable_ortho_layout { transform = <&ortho_transform>; };
+&technikable_mit_layout { transform = <&mit_transform>; };
+&technikable_dual_2u_layout { transform = <&dual_2u_transform>; };
 
 / {
 	model = "technikable";
@@ -17,9 +24,8 @@
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 		zmk,kscan = &kscan;
-		zmk,matrix_transform = &ortho_transform;
+		zmk,physical-layout = &technikable_ortho_layout;
 		zmk,battery = &vbatt;
-		zephyr,console = &cdc_acm_uart0;
 	};
 
 	aliases {
@@ -30,11 +36,13 @@
 		compatible = "gpio-leds";
 		blue_led: led_0 {
 			gpios = <&gpio1 2 GPIO_ACTIVE_HIGH>;
+			label = "Blue LED";
 		};
 	};
 
 	vbatt: vbatt {
 		compatible = "zmk,battery-nrf-vddh";
+		label = "BATTERY";
 	};
 
 	ortho_transform: ortho_transform {
@@ -78,7 +86,9 @@
 	
 	kscan: kscan {
 		compatible = "zmk,kscan-gpio-matrix";
-    wakeup-source;
+
+		wakeup-source;
+
 		debounce-press-ms = <1>;
 		debounce-release-ms = <5>;
 
@@ -107,6 +117,14 @@
 	};
 };
 
+&reg0 {
+    status = "okay";
+};
+
+&reg1 {
+    regulator-initial-mode = <NRF5X_REG_MODE_DCDC>;
+};
+
 &adc {
 	status = "okay";
 };
@@ -123,14 +141,9 @@
 	status = "okay";
 };
 
-
-&usbd {
+zephyr_udc0: &usbd {
 	status = "okay";
-	cdc_acm_uart0: cdc_acm_uart0 {
-		compatible = "zephyr,cdc-acm-uart";
-	};
 }; 
-
 
 &flash0 {
 	/*
@@ -143,17 +156,21 @@
 		#size-cells = <1>;
 
 		sd_partition: partition@0 {
+			label = "mbr";
 			reg = <0x00000000 0x00001000>;
 		};
 		code_partition: partition@1000 {
+			label = "code_partition";
 			reg = <0x00001000 0x000d3000>;
 		};
 
 		storage_partition: partition@d4000 {
+			label = "storage";
 			reg = <0x000d4000 0x00020000>;
 		};
 
 		boot_partition: partition@f4000 {
+			label = "adafruit_boot";
 			reg = <0x000f4000 0x0000c000>;
 		};
 	};
