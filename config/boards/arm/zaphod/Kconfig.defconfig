@@ -3,9 +3,6 @@
 
 if BOARD_ZAPHOD
 
-config BOARD
-	default "zaphod"
-
 config ZMK_KEYBOARD_NAME
 	default "Zaphod"
 
