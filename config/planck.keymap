@@ -1,0 +1,111 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+#include "zmk-helpers/helper.h"
+#include "zmk-helpers/key-labels/4x12_wide.h"
+
+#include "merlinvn/config.dtsi"
+#include "merlinvn/macros.dtsi"
+#include "merlinvn/behaviors.dtsi"
+#include "merlinvn/combos.dtsi"
+#include "merlinvn/mouse.dtsi"
+#include "merlinvn/keymap.dtsi"
+
+/* Place the shared 34-key layout on a Planck's 4x12 matrix. */
+#define PLANCK_BINDINGS(TL, TR, ML, MR, BL, BR, LH, RH)                       \
+    TL &none &none TR                                                         \
+    ML &none &none MR                                                         \
+    BL &none &none BR                                                         \
+    &none &none &none LH &none &none RH &none &none &none
+
+#define TL_QWERTY &kp Q &kp W &kp E &kp R &kp T
+#define TR_QWERTY &kp Y &kp U &kp I &kp O &kp P
+#define ML_QWERTY &kp A &kp S &kp D &kp F &kp G
+#define MR_QWERTY &kp H &kp J &kp K &kp L &kp SQT
+#define BL_QWERTY &kp Z &kp X &kp C &kp V &kp B
+#define BR_QWERTY &kp N &kp M &kp COMMA &kp DOT &kp FSLH
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        neo_layer {
+            display-name = "NeoE";
+            bindings = < PLANCK_BINDINGS(
+                TL_MAIN, TR_MAIN, ML_MAIN, MR_MAIN, BL_MAIN, BR_MAIN,
+                THUMBL_MAIN, THUMBR_MAIN
+            ) >;
+        };
+
+        qwerty_layer {
+            display-name = "QWERTY";
+            bindings = < PLANCK_BINDINGS(
+                TL_QWERTY, TR_QWERTY, ML_QWERTY, MR_QWERTY, BL_QWERTY, BR_QWERTY,
+                &lt NAV_L ESC &kp SPACE, &kp BSPC &kp RET
+            ) >;
+        };
+
+        vie_layer {
+            display-name = "TELEX";
+            bindings = < PLANCK_BINDINGS(
+                &kp Q &kp P &kp M &kp L &kp B,
+                &kp Z &kp R &kp E &kp U &kp FSLH,
+                &kp I &kp G &kp N &lt NUM_L H &kp X,
+                &kp F &kp S &kp A &kp W &kp O,
+                &hml LGUI Y &hml LALT T &hml LCTRL C &hml LSHFT D &hml SPACE V,
+                &kp BSPC &hmr RSHFT J &hmr RCTRL K &hmr LALT DOT &hmr RGUI COMMA,
+                &lt NUM_L ESC &lt NAV_L SPACE, &sl SYM_L &lt SYM_L RET
+            ) >;
+        };
+
+        nav_layer {
+            display-name = "Nav";
+            bindings = < PLANCK_BINDINGS(
+                TL_NAV, TR_NAV, ML_NAV, MR_NAV, BL_NAV, BR_NAV,
+                THUMBL_NAV, THUMBR_NAV
+            ) >;
+        };
+
+        num_layer {
+            display-name = "Num";
+            bindings = < PLANCK_BINDINGS(
+                TL_NUM, TR_NUM, ML_NUM, MR_NUM, BL_NUM, BR_NUM,
+                THUMBL_NUM, THUMBR_NUM
+            ) >;
+        };
+
+        sym_layer {
+            display-name = "Sym";
+            bindings = < PLANCK_BINDINGS(
+                TL_SYM, TR_SYM, ML_SYM, MR_SYM, BL_SYM, BR_SYM,
+                THUMBL_SYM, THUMBR_SYM
+            ) >;
+        };
+
+        fun_layer {
+            display-name = "Fun";
+            bindings = < PLANCK_BINDINGS(
+                TL_FUN, TR_FUN, ML_FUN, MR_FUN, BL_FUN, BR_FUN,
+                THUMBL_FUN, THUMBR_FUN
+            ) >;
+        };
+
+        mouse_layer {
+            display-name = "Mouse";
+            bindings = < PLANCK_BINDINGS(
+                TL_MOU, TR_MOU, ML_MOU, MR_MOU, BL_MOU, BR_MOU,
+                THUMBL_MOU, THUMBR_MOU
+            ) >;
+        };
+
+        media_layer {
+            display-name = "Media";
+            bindings = < PLANCK_BINDINGS(
+                TL_MED, TR_MED, ML_MED, MR_MED, BL_MED, BR_MED,
+                THUMBL_MED, THUMBR_MED
+            ) >;
+        };
+    };
+};
