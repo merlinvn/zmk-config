@@ -18,3 +18,7 @@ include:
   - board: technikable
   - board: nice_nano
     shield: neo_kinesis
+  - board: nice_nano
+    shield: cradio_left
+  - board: nice_nano
+    shield: cradio_right

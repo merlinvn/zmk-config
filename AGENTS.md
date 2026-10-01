@@ -17,6 +17,45 @@ and the build pipeline, see the [README](README.md).
   everything); compiled firmware lands in `firmware/`. If `just` or `west` are missing, the
   environment isn't active — run commands through `nix develop --command <cmd>` or activate with
   `direnv allow`.
+- **Building in the ZMK dev container** is also supported. The checkout at
+  `/Users/neo/Projects/keyboard/zmk` has `.devcontainer/devcontainer.json`; reopen that folder in
+  the container, then work from `/workspaces/zmk-config` (mounted from this repository). If the
+  dev-container CLI or an active container is unavailable, the same image can be run directly:
+  from the config repository root:
+
+  ```sh
+  docker run --rm -it --security-opt label=disable \
+    -v "$PWD":/workspaces/zmk-config \
+    -w /workspaces/zmk-config \
+    zmkfirmware/zmk-dev-arm:4.1-branch /bin/bash
+  ```
+
+  On first use in this config checkout, run the pinned West setup from
+  `/workspaces/zmk-config`:
+
+  ```sh
+  west init -l config
+  west update --fetch-opt=--filter=blob:none
+  west zephyr-export
+  ```
+
+  These fetch ZMK, Zephyr, and the modules pinned by `config/west.yml` into ignored workspace
+  directories under this repo. Reuse them on later runs. The dev image does not include `just`, so
+  build with West directly:
+
+  ```sh
+  west build -s zmk/app -d .build/cradio_left-nice_nano -b nice_nano -- \
+    -DZMK_CONFIG=/workspaces/zmk-config/config -DSHIELD=cradio_left
+  west build -s zmk/app -d .build/cradio_right-nice_nano -b nice_nano -- \
+    -DZMK_CONFIG=/workspaces/zmk-config/config -DSHIELD=cradio_right
+  mkdir -p firmware
+  cp .build/cradio_left-nice_nano/zephyr/zmk.uf2 firmware/cradio_left-nice_nano.uf2
+  cp .build/cradio_right-nice_nano/zephyr/zmk.uf2 firmware/cradio_right-nice_nano.uf2
+  ```
+
+  The pinned manifest calls the Nice!Nano V2 board `nice_nano` (revision 2.0.0), not
+  `nice_nano_v2`. The standard `just` recipe copies build outputs into `firmware/` automatically
+  when `just` is available.
 - `config/west.yml` is maintained by [pin-west](https://github.com/urob/pin-west): never hand-edit
   pinned revisions, run `pin-west bump` instead. Adding or removing a module is fine — edit the
   entry itself and re-run `pin-west pin` to (re)pin.
@@ -62,8 +101,10 @@ non-split, wired board; `config/glove80.keymap` shows a much larger board.
    is needed either way — `base.keymap` has a pass-through fallback.) The steps below assume the
    modular layout.
 
-2. **Identify the ZMK board/shield names** for the hardware (e.g. `nice_nano_v2` +
-   `corne_left`/`corne_right`), from the ZMK docs or the board's vendor config.
+2. **Identify the ZMK board/shield names** for the hardware (e.g. `nice_nano` +
+   `corne_left`/`corne_right`), from the pinned ZMK workspace or the board's vendor config. Board
+   names can differ between ZMK revisions; use the name recognized by the repository's pinned
+   manifest rather than assuming a controller revision appears in the name.
 
 3. **Check for an existing key-position header** in
    `modules/zmk/helpers/include/zmk-helpers/key-labels/` (after `just init`; the same list is in
@@ -92,6 +133,48 @@ non-split, wired board; `config/glove80.keymap` shows a much larger board.
 
 7. **Build and check**: `just build <name>` (any substring of the board/shield matches), then
    confirm the artifact appears in `firmware/`.
+
+For a Merlinvn-backed 34-key board, `config/merlinvn/keymap.dtsi` supplies binding macros; the
+entry keymap must also instantiate the `/keymap` node and its layers, following
+`config/boards/petejohanson/zaphod/zaphod.keymap`. Cradio/Sweep has the same 34-key positions as
+Zaphod, so its adapter can use the equivalent position definitions. For Bluetooth operation, set
+`CONFIG_ZMK_BLE=y` in the shared `config/cradio.conf`; Bluetooth tuning options alone do not enable
+BLE.
+
+### Cradio/Sweep split and Bluetooth troubleshooting
+
+- `cradio_left` is the split central; `cradio_right` is a BLE split peripheral. Only the left side
+  presents a host keyboard over USB or BLE. The right side must be independently powered and paired
+  to the left, and will not appear as its own keyboard in the Mac's Bluetooth list.
+- Host output selection and split communication are separate. `CONFIG_ZMK_BLE=y` enables both BLE
+  uses. If USB and BLE are both available, ZMK prefers USB by default; use `&out OUT_BLE` to route
+  key events to the selected host Bluetooth profile while keeping USB connected for power. In this
+  keymap, hold the left thumb's Nav key, hold the first right thumb key to activate Media, then tap
+  the second key on the left bottom row (`&out OUT_BLE`). `OUT_TOG` is the first key in that row.
+- The Media layer also has Bluetooth profile selection on `ML_MED` (`BT_SEL 0`–`BT_SEL 4`) and
+  `BT_CLR` on the fifth key of `BL_MED`. A cleared or unused profile advertises for host pairing.
+  If re-pairing with a host, forget the old keyboard entry on the host as well as clearing the ZMK
+  profile; host-side bond data is stored separately.
+- The `&sys_reset` combo in `config/merlinvn/combos.dtsi` resets only the central. To restart the
+  split link, reset both controllers close together (their physical reset buttons work), or reset
+  the peripheral immediately after the central. A normal reset does not erase pairing data.
+- If the split bond must be cleared, flash settings-reset images to both controllers, then restore
+  the matching normal images. Because `config/cradio.conf` enables BLE and USB, those settings can
+  override the `settings_reset` shield's default of disabling Bluetooth. For reset builds, provide
+  an extra Kconfig fragment containing:
+
+  ```conf
+  CONFIG_ZMK_BLE=n
+  CONFIG_ZMK_USB=n
+  ```
+
+  Pass it as `-DEXTRA_CONF_FILE=/workspaces/zmk-config/config/cradio_reset.conf` and include both
+  shields, e.g. `-DSHIELD="cradio_left settings_reset"` or
+  `-DSHIELD="cradio_right settings_reset"`. Confirm the resulting `.config` has
+  `CONFIG_ZMK_SETTINGS_RESET_ON_START=y` and `# CONFIG_ZMK_BLE is not set`. Flash a reset image to
+  each side before restoring either normal image; then power-cycle both close together. This clears
+  all on-device settings, including host Bluetooth profiles and output selection. Forget the old
+  Cradio entry on the Mac if it was paired over BLE.
 
 ## Where to change what
 
