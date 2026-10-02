@@ -45,10 +45,10 @@ and the build pipeline, see the [README](README.md).
 
   ```sh
   export ZEPHYR_BASE=/workspaces/zmk-config/zephyr
-  west build -s zmk/app -d .build/cradio_left-nice_nano -b nice_nano -- \
+  west build -s zmk/app -d .build/cradio_left-nice_nano -b "nice_nano@2.0.0//zmk" -- \
     -DZephyr_DIR=/workspaces/zmk-config/zephyr/share/zephyr-package/cmake \
     -DZMK_CONFIG=/workspaces/zmk-config/config -DSHIELD=cradio_left
-  west build -s zmk/app -d .build/cradio_right-nice_nano -b nice_nano -- \
+  west build -s zmk/app -d .build/cradio_right-nice_nano -b "nice_nano@2.0.0//zmk" -- \
     -DZephyr_DIR=/workspaces/zmk-config/zephyr/share/zephyr-package/cmake \
     -DZMK_CONFIG=/workspaces/zmk-config/config -DSHIELD=cradio_right
   west build -s zmk/app -d .build/planck-rev6 -b "planck@6.0.0//zmk" -- \
@@ -60,9 +60,11 @@ and the build pipeline, see the [README](README.md).
   cp .build/planck-rev6/zephyr/zmk.bin firmware/planck_rev6.bin
   ```
 
-  The pinned manifest calls the Nice!Nano V2 board `nice_nano` (revision 2.0.0), not
-  `nice_nano_v2`. The standard `just` recipe copies build outputs into `firmware/` automatically
-  when `just` is available.
+  Use `nice_nano@2.0.0//zmk` for Nice!Nano V2 with the pinned manifest. The `//zmk` variant
+  enables flash/NVS storage; plain `nice_nano` can build with `CONFIG_SETTINGS_NONE=y` and lose
+  Bluetooth pairing on reset. Verify normal Cradio builds have `CONFIG_FLASH=y` and
+  `CONFIG_SETTINGS_NVS=y`. The standard `just` recipe copies build outputs into `firmware/`
+  automatically when `just` is available.
 - `config/west.yml` is maintained by [pin-west](https://github.com/urob/pin-west): never hand-edit
   pinned revisions, run `pin-west bump` instead. Adding or removing a module is fine — edit the
   entry itself and re-run `pin-west pin` to (re)pin.
@@ -71,8 +73,6 @@ and the build pipeline, see the [README](README.md).
   `ZMK_LAYER` are safe and need no guarding. It earns its keep on plain devicetree, i.e. when
   developing modules or board definitions. Without arguments it recurses over the working
   directory; pass files explicitly to narrow it.
-- After changes to the shared upstream-style `config/base.keymap`, regenerate its diagrams with
-  `just draw` (renders `draw/base.svg` and `draw/overview.svg`). The Merlinvn keymaps are separate.
 - `just test` is a snapshot-test harness for developing the ZMK **modules** checked out under
   `modules/zmk/`. It does not test this repo's keymap; the keymap is validated by building.
 
@@ -86,10 +86,7 @@ The active board keymaps share bindings and behaviors from `config/merlinvn/`:
 - Neo Kinesis, Zaphod, and Technikable have board-specific keymap entry files that include the same
   Merlinvn layer definitions.
 
-`config/base.keymap`, `config/combos.dtsi`, `config/leader.dtsi`, and `config/mouse.dtsi` are the
-older generic keymap retained for the `just draw` diagrams. They are not included by the active
-firmware targets. Keep changes to the active Merlinvn map in `config/merlinvn/` and its board entry
-keymaps instead.
+The active Merlinvn map is defined in `config/merlinvn/` and mapped by its board entry keymaps.
 
 ## Adding a board
 
@@ -97,8 +94,7 @@ keymaps instead.
 2. Reuse a matching key-label header from `modules/zmk/helpers/include/zmk-helpers/key-labels/`.
 3. Create `config/<board>.keymap`, using `cradio.keymap` for a 34-key Merlinvn layout or
    `planck.keymap` for a 4×12 adaptation. Keep the shared 34 positions in the same order.
-4. Create `config/<board>.conf`; Cradio's BLE and sleep settings are in `cradio.conf`, and pointing
-   boards need `CONFIG_ZMK_POINTING=y` for the mouse layer.
+4. Create `config/<board>.conf`; Cradio's BLE and sleep settings are in `cradio.conf`.
 5. Add the target to `build.yaml`, then run `just build <target>` and check `firmware/`.
 
 For Cradio host Bluetooth, set `CONFIG_ZMK_BLE=y` in `config/cradio.conf`; Bluetooth tuning options
@@ -112,15 +108,16 @@ alone do not enable BLE.
 - Host output selection and split communication are separate. `CONFIG_ZMK_BLE=y` enables both BLE
   uses. If USB and BLE are both available, ZMK prefers USB by default; use `&out OUT_BLE` to route
   key events to the selected host Bluetooth profile while keeping USB connected for power. In this
-  keymap, hold the left thumb's Nav key, hold the first right thumb key to activate Media, then tap
-  the second key on the left bottom row (`&out OUT_BLE`). `OUT_TOG` is the first key in that row.
-- The Media layer also has Bluetooth profile selection on `ML_MED` (`BT_SEL 0`–`BT_SEL 4`) and
-  `BT_CLR` on the fifth key of `BL_MED`. A cleared or unused profile advertises for host pairing.
-  If re-pairing with a host, forget the old keyboard entry on the host as well as clearing the ZMK
-  profile; host-side bond data is stored separately.
-- The `&sys_reset` combo in `config/merlinvn/combos.dtsi` resets only the central. To restart the
-  split link, reset both controllers close together (their physical reset buttons work), or reset
-  the peripheral immediately after the central. A normal reset does not erase pairing data.
+  keymap, hold the left thumb's Nav key and the first right thumb key to momentarily activate Fun,
+  then tap `OUT_BLE` on the right top row. `OUT_TOG` is on the left top row in Fun.
+- Fun has Bluetooth profile selection (`BT_SEL 0`–`BT_SEL 2`) and `BT_CLR` on the right top row.
+  A cleared or unused profile advertises for host pairing. If re-pairing with a host, forget the old
+  keyboard entry on the host as well as clearing the ZMK profile; host-side bond data is stored
+  separately.
+- Only Cradio uses `&reset_all`. Its `LT1` + `LT0` combo and Fun reset key reset the peripheral,
+  then the central after a short delay. This requires a live split connection; physical reset
+  buttons remain available when the link is down. Other boards use `&sys_reset` in Fun.
+  A normal reset does not erase pairing data.
 - If the split bond must be cleared, flash settings-reset images to both controllers, then restore
   the matching normal images. Because `config/cradio.conf` enables BLE and USB, those settings can
   override the `settings_reset` shield's default of disabling Bluetooth. For reset builds, provide
@@ -144,12 +141,9 @@ alone do not enable BLE.
 | Change                            | File                                                              |
 | --------------------------------- | ----------------------------------------------------------------- |
 | Merlinvn layers, HRMs, thumb keys | `config/merlinvn/keymap.dtsi`, `config/merlinvn/behaviors.dtsi`  |
-| Legacy diagram keymap             | `config/base.keymap`                                               |
 | Combos                            | `config/merlinvn/combos.dtsi`                                      |
-| Leader sequences (legacy)         | `config/leader.dtsi`                                               |
-| Mouse layer                       | `config/merlinvn/mouse.dtsi`                                       |
 | Per-board keys, physical mapping  | `config/<board>.keymap`                                            |
-| Board settings (BT, sleep, mouse) | `config/<board>.conf`                                              |
+| Board settings                    | `config/<board>.conf`                                              |
 | Build targets                     | `build.yaml`                                                       |
 | ZMK/module versions               | `config/west.yml` (via `pin-west bump` only)                       |
 | Dev environment                   | `flake.nix`, `nix/` (test with `nix develop`)                      |

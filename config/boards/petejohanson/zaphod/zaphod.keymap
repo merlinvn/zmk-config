@@ -13,7 +13,6 @@
 
 // must be source after behaviors
 #include "../../../merlinvn/combos.dtsi"
-#include "../../../merlinvn/mouse.dtsi"
 
 // source last
 #include "../../../merlinvn/keymap.dtsi"
@@ -21,6 +20,7 @@
 / {
     keymap {
         compatible = "zmk,keymap";
+
 
         neo_layer {
             display-name = "NeoE";
@@ -32,25 +32,17 @@
             >;
         };
 
-       qwerty_layer {
-            display-name = "QWERTY";
+        game_layer {
+            display-name = "Game";
             bindings = <
-                &kp Q      &kp W      &kp E       &kp R          &kp T         &kp Y            &kp U          &kp I           &kp O        &kp P
-                &kp A      &kp S      &kp D       &kp F          &kp G         &kp H            &kp J          &kp K           &kp L        &kp SQT
-                &kp Z      &kp X      &kp C       &kp V          &kp B         &kp N            &kp M          &kp COMMA       &kp DOT      &kp FSLH
-                                                  &lt NAV_L ESC  &kp SPACE     &kp BSPC         &kp RET
+                TL_GAME TR_GAME
+                ML_GAME MR_GAME
+                BL_GAME BR_GAME
+                THUMBL_GAME THUMBR_GAME
             >;
         };
 
-       vie_layer {
-            display-name = "TELEX";
-            bindings = <
-                &kp Q       &kp P       &kp M          &kp L           &kp B         &kp Z            &kp R           &kp E          &kp U      &kp FSLH
-                &kp I       &kp G       &kp N          &lt NUM_L H     &kp X         &kp F            &kp S           &kp A          &kp W         &kp O
-                &hml LGUI Y &hml LALT T &hml LCTRL C   &hml LSHFT D    &hml SPACE V         &kp BSPC         &hmr RSHFT J    &hmr RCTRL K &hmr LALT DOT &hmr RGUI COMMA
-                                                  &lt NUM_L ESC  &lt NAV_L SPACE     &sl SYM_L   &lt SYM_L RET
-            >;
-        };
+
 
        nav_layer {
             display-name = "Nav";
@@ -92,25 +84,7 @@
             >;
         };
 
-        mouse_layer {
-            display-name = "Mouse";
-            bindings = <
-                TL_MOU         TR_MOU
-                ML_MOU         MR_MOU
-                BL_MOU         BR_MOU
-                THUMBL_MOU     THUMBR_MOU
-            >;
-        };
 
-        media_layer {
-            display-name = "Media";
-            bindings = <
-                TL_MED         TR_MED
-                ML_MED         MR_MED
-                BL_MED         BR_MED
-                THUMBL_MED     THUMBR_MED
-            >;
-        };
 
     };
 };

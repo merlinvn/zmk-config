@@ -50,7 +50,6 @@
 #include "../../../merlinvn/macros.dtsi"
 #include "../../../merlinvn/behaviors.dtsi"
 #include "../../../merlinvn/combos.dtsi"
-#include "../../../merlinvn/mouse.dtsi"
 #include "../../../merlinvn/keymap.dtsi"
 
 #define BT(n) BT_SEL n
@@ -83,6 +82,7 @@
     keymap {
         compatible = "zmk,keymap";
 
+
         neo_layer {
             display-name = "NeoE";
             bindings = <
@@ -99,37 +99,23 @@
             >;
         };
 
-        qwerty_layer {
-            display-name = "QWERTY";
+        game_layer {
+            display-name = "Game";
             bindings = <
-                &none   &none  &none  &none  &none   &none    &none      &none  &none   &none   &none &none 
-                &none   &none  &none  &none  &none   &none    &none      &none  &none   &none   &none &none 
-                &none   &none  &none  &none  &none   &none    &none      &none  &none   &none   &none &none 
+                TL_GAME &none &none TR_GAME
+                ML_GAME &none &none MR_GAME
+                BL_GAME &none &none BR_GAME
 #ifdef TBLE_DUAL_2U
-                       &none  &none  &none  &none  &none  &none
+                &kp LCTRL THUMBL_GAME THUMBR_GAME &kp RCTRL
 #elif defined(TBLE_MIT)
-                       &none  &none  &none  &none  &none  &none  &none
+                &kp LCTRL THUMBL_GAME &none THUMBR_GAME &kp RCTRL
 #else
-                       &none  &none  &none  &none  &none  &none  &none  &none
+                &kp LCTRL &kp LALT THUMBL_GAME &kp SPACE THUMBR_GAME &kp RALT &kp RCTRL
 #endif
             >;
         };
 
-        vie_layer {
-            display-name = "TELEX";
-            bindings = <
-                &kp Q      &kp W     &kp F     &kp P          &kp B    &none    &none         &kp Z    &kp L  &kp U   &kp Y       &kp RET
-                &kp A      &kp R     &kp S     &kp T          &kp G    &none    &none         &kp M    &kp N  &kp H   &kp I       &kp O
-                &kp SQT    &kp X     &kp C     &kp D          &kp V    &none    &none         &kp FSLH &kp J  &kp K   &kp COMMA   &kp DOT
-#ifdef TBLE_DUAL_2U
-                       &kp LCTRL  &kp LALT      &lt NAV_L SPACE                &lt NUM_L SPACE              &kp RALT    &kp RCTRL
-#elif defined(TBLE_MIT)
-                       &kp LCTRL  &sl NUM_L  &lt NAV_L SPACE              &none                &lt FUN_L E  &sl SYM_L  &kp RCTRL
-#else
-                       &kp LCTRL  &kp LALT    &mo NAV_L      &kp SPACE      &kp SPACE        &mo NUM_L      &kp RALT    &kp RCTRL
-#endif
-            >;
-        };
+
 
         nav_layer {
             display-name = "Nav";
@@ -195,37 +181,7 @@
             >;
         };
 
-        mouse_layer {
-            display-name = "Mouse";
-            bindings = <
-                TL_MOU     &none  &none      TR_MOU
-                ML_MOU     &none  &none      MR_MOU
-                BL_MOU     &none  &none      BR_MOU
-#ifdef TBLE_DUAL_2U
-                      &trans     THUMBL_MOU                           THUMBR_MOU  &trans
-#elif defined(TBLE_MIT)
-                      &trans     THUMBL_MOU            &trans         THUMBR_MOU   &trans
-#else
-                      &trans     THUMBL_MOU      &trans       &trans  THUMBR_MOU   &trans
-#endif
-            >;
-        };
 
-        media_layer {
-            display-name = "Media";
-            bindings = <
-                TL_MED     &none  &none     TR_MED
-                ML_MED     &none  &none     MR_MED
-                BL_MED     &none  &none     BR_MED
-#ifdef TBLE_DUAL_2U
-             &trans    THUMBL_MED                             THUMBR_MED  &trans
-#elif defined(TBLE_MIT)
-             &trans    THUMBL_MED            &trans           THUMBR_MED  &trans
-#else
-             &trans    THUMBL_MED      &trans       &trans    THUMBR_MED  &trans
-#endif
-            >;
-        };
 
     };
 };

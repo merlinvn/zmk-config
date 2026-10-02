@@ -113,12 +113,6 @@ For UF2-based boards, simply copy the compiled firmware from the `firmware` dire
 board's USB mass-storage device. For boards that don't support UF2 (like the Planck),
 `just flash <target>` builds the firmware and flashes it via `west flash`.
 
-### Drawing the keymap
-
-The build environment packages [keymap-drawer](https://github.com/caksoylar/keymap-drawer).
-`just draw` parses `base.keymap` and renders it to `draw/base.svg` (per-layer breakdown) and
-`draw/overview.svg` (the condensed overview shown in the README).
-
 ### Devicetree formatter (experimental)
 
 The build environment also packages a (patched and wrapped) version of

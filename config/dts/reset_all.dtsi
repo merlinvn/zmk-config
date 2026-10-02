@@ -1,0 +1,9 @@
+/ {
+	behaviors {
+		reset_all: resetall {
+			compatible = "zmk,behavior-reset-all";
+			#binding-cells = <0>;
+			display-name = "Reset both halves";
+		};
+	};
+};

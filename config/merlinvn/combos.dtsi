@@ -12,8 +12,12 @@
 #define COMBO_TERM_FAST 30
 #define COMBO_TERM_SLOW 50
 
+#ifndef CLEAR_COMBO_BINDING
+#define CLEAR_COMBO_BINDING &sys_reset
+#endif
+
 // top left
-ZMK_COMBO(clear_combo,       &sys_reset,            LT1 LT0,   BASE_L SYM_L NAV_L,         COMBO_TERM_FAST)
+ZMK_COMBO(clear_combo,       CLEAR_COMBO_BINDING,    LT1 LT0,   BASE_L SYM_L NAV_L,         COMBO_TERM_FAST)
 ZMK_COMBO(equal_combo,        &kp EQUAL,            LT2 LT1,   BASE_L,         COMBO_TERM_FAST)
 ZMK_COMBO(plus_combo,        &kp PLUS,              LT3 LT2,   BASE_L,         COMBO_TERM_FAST)
 ZMK_COMBO(lbrace_combo,      &kp LBRC,              LT3 LT1,   BASE_L,         COMBO_TERM_SLOW)
@@ -57,13 +61,6 @@ ZMK_COMBO(rs_combo,          &sk RSHIFT,           RM2 RB1,   BASE_L,         CO
 /* #define VIE_COMBO false */
 
     /*
-    med_mo {
-        timeout-ms = <50>;
-              key-positions = <30 33>;
-              bindings = <&sl MED_L>;
-        layers = <BASE_L QW_L VI_L>;
-          };
-
     meh_combo {
         timeout-ms = <40>;
               key-positions = <38 39>;
@@ -92,104 +89,104 @@ ZMK_COMBO(rs_combo,          &sk RSHIFT,           RM2 RB1,   BASE_L,         CO
 /*         timeout-ms = <40>; */
 /*               key-positions = <11 12 13>; */
 /*               bindings = <&ngh_macro>; */
-/*         layers = <VI_L>; */
+/*         layers = <GAME_L>; */
 /*     }; */
 /**/
 /*     ng_combo { */
 /*         timeout-ms = <40>; */
 /*               key-positions = <11 12>; */
 /*               bindings = <&ng_macro>; */
-/*         layers = <VI_L>; */
+/*         layers = <GAME_L>; */
 /*     }; */
 /**/
 /*     gh_combo { */
 /*         timeout-ms = <40>; */
 /*               key-positions = <11 13>; */
 /*               bindings = <&gh_macro>; */
-/*         layers = <VI_L>; */
+/*         layers = <GAME_L>; */
 /*     }; */
 /**/
 /*     nh_combo { */
 /*         timeout-ms = <40>; */
 /*               key-positions = <12 13>; */
 /*               bindings = <&nh_macro>; */
-/*         layers = <VI_L>; */
+/*         layers = <GAME_L>; */
 /*     }; */
 /**/
 /*     th_combo { */
 /*         timeout-ms = <40>; */
 /*               key-positions = <21 13>; */
 /*               bindings = <&th_macro>; */
-/*         layers = <VI_L>; */
+/*         layers = <GAME_L>; */
 /*     }; */
 /**/
 /*     tr_combo { */
 /*         timeout-ms = <40>; */
 /*               key-positions = <21 22>; */
 /*               bindings = <&tr_macro>; */
-/*         layers = <VI_L>; */
+/*         layers = <GAME_L>; */
 /*     }; */
 /**/
 /*     qu_combo { */
 /*         timeout-ms = <40>; */
 /*               key-positions = <22 23>; */
 /*               bindings = <&qu_macro>; */
-/*         layers = <VI_L>; */
+/*         layers = <GAME_L>; */
 /*     }; */
 /**/
 /*     ph_combo { */
 /*         timeout-ms = <40>; */
 /*               key-positions = <1 13>; */
 /*               bindings = <&ph_macro>; */
-/*         layers = <VI_L>; */
+/*         layers = <GAME_L>; */
 /*     }; */
 /**/
 /*     ch_combo { */
 /*         timeout-ms = <40>; */
 /*               key-positions = <22 13>; */
 /*               bindings = <&ch_macro>; */
-/*         layers = <VI_L>; */
+/*         layers = <GAME_L>; */
 /*     }; */
 /**/
 /*     iee_combo { */
 /*         timeout-ms = <40>; */
 /*               key-positions = <6 7>; */
 /*               bindings = <&iee_macro>; */
-/*         layers = <VI_L>; */
+/*         layers = <GAME_L>; */
 /*     }; */
 /**/
 /*     uow_combo { */
 /*         timeout-ms = <30>; */
 /*               key-positions = <16 17>; */
 /*               bindings = <&uow_macro>; */
-/*         layers = <VI_L>; */
+/*         layers = <GAME_L>; */
 /*     }; */
 /**/
 /*     owi_combo { */
 /*         timeout-ms = <30>; */
 /*               key-positions = <17 18>; */
 /*               bindings = <&owi_macro>; */
-/*         layers = <VI_L>; */
+/*         layers = <GAME_L>; */
 /*     }; */
 /**/
 /*     yee_combo { */
 /*         timeout-ms = <40>; */
 /*               key-positions = <7 8>; */
 /*               bindings = <&yee_macro>; */
-/*         layers = <VI_L>; */
+/*         layers = <GAME_L>; */
 /*     }; */
 /**/
 /*     uoo_combo { */
 /*         timeout-ms = <40>; */
 /*               key-positions = <26 27>; */
 /*               bindings = <&uoo_macro>; */
-/*         layers = <VI_L>; */
+/*         layers = <GAME_L>; */
 /*     }; */
 /**/
 /*     ooi_combo { */
 /*         timeout-ms = <40>; */
 /*               key-positions = <27 28>; */
 /*               bindings = <&ooi_macro>; */
-/*         layers = <VI_L>; */
+/*         layers = <GAME_L>; */
 /*     }; */
 /* #endif */

@@ -10,7 +10,6 @@
 #include "merlinvn/macros.dtsi"
 #include "merlinvn/behaviors.dtsi"
 #include "merlinvn/combos.dtsi"
-#include "merlinvn/mouse.dtsi"
 #include "merlinvn/keymap.dtsi"
 
 /* Place the shared 34-key layout on a Planck's 4x12 matrix. */
@@ -19,13 +18,6 @@
     ML &none &none MR                                                         \
     BL &none &none BR                                                         \
     &none &none &none LH &none &none RH &none &none &none
-
-#define TL_QWERTY &kp Q &kp W &kp E &kp R &kp T
-#define TR_QWERTY &kp Y &kp U &kp I &kp O &kp P
-#define ML_QWERTY &kp A &kp S &kp D &kp F &kp G
-#define MR_QWERTY &kp H &kp J &kp K &kp L &kp SQT
-#define BL_QWERTY &kp Z &kp X &kp C &kp V &kp B
-#define BR_QWERTY &kp N &kp M &kp COMMA &kp DOT &kp FSLH
 
 / {
     keymap {
@@ -39,24 +31,11 @@
             ) >;
         };
 
-        qwerty_layer {
-            display-name = "QWERTY";
+        game_layer {
+            display-name = "Game";
             bindings = < PLANCK_BINDINGS(
-                TL_QWERTY, TR_QWERTY, ML_QWERTY, MR_QWERTY, BL_QWERTY, BR_QWERTY,
-                &lt NAV_L ESC &kp SPACE, &kp BSPC &kp RET
-            ) >;
-        };
-
-        vie_layer {
-            display-name = "TELEX";
-            bindings = < PLANCK_BINDINGS(
-                &kp Q &kp P &kp M &kp L &kp B,
-                &kp Z &kp R &kp E &kp U &kp FSLH,
-                &kp I &kp G &kp N &lt NUM_L H &kp X,
-                &kp F &kp S &kp A &kp W &kp O,
-                &hml LGUI Y &hml LALT T &hml LCTRL C &hml LSHFT D &hml SPACE V,
-                &kp BSPC &hmr RSHFT J &hmr RCTRL K &hmr LALT DOT &hmr RGUI COMMA,
-                &lt NUM_L ESC &lt NAV_L SPACE, &sl SYM_L &lt SYM_L RET
+                TL_GAME, TR_GAME, ML_GAME, MR_GAME, BL_GAME, BR_GAME,
+                THUMBL_GAME, THUMBR_GAME
             ) >;
         };
 
@@ -92,20 +71,5 @@
             ) >;
         };
 
-        mouse_layer {
-            display-name = "Mouse";
-            bindings = < PLANCK_BINDINGS(
-                TL_MOU, TR_MOU, ML_MOU, MR_MOU, BL_MOU, BR_MOU,
-                THUMBL_MOU, THUMBR_MOU
-            ) >;
-        };
-
-        media_layer {
-            display-name = "Media";
-            bindings = < PLANCK_BINDINGS(
-                TL_MED, TR_MED, ML_MED, MR_MED, BL_MED, BR_MED,
-                THUMBL_MED, THUMBR_MED
-            ) >;
-        };
     };
 };
