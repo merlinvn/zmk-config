@@ -11,12 +11,12 @@
 #define BR_MAIN       &kp FSLH          &kp J              &kp K              &hmr RALT COMMA    &kp DOT
 
 #define THUMBL_MAIN   &kp MEH           &lt NAV_L SPACE
-#define THUMBR_MAIN   &lt SYM_L E       &sl FUN_L
+#define THUMBR_MAIN   &lt SYM_L E       &fun_repeat FUN_L 0
 
 // game layer (QWERTY)
 #define TL_GAME       &kp T             &kp Q              &kp W              &kp E              &kp R
 #define ML_GAME       &kp LSHFT         &kp A              &kp S              &kp D              &kp F
-#define BL_GAME       &kp LCTRL         &kp X              &kp C              &kp V              &kp V
+#define BL_GAME       &kp LCTRL         &kp Z              &kp X              &kp C              &kp V
 #define TR_GAME       &kp Y             &kp U              &kp I              &kp O              &kp P
 #define MR_GAME       &kp H             &kp J              &kp K              &kp L              &kp FSLH
 #define BR_GAME       &kp B             &kp N              &kp M              &kp COMMA          &kp DOT
@@ -25,7 +25,7 @@
 
 // nav layer
 #define TL_NAV        &gui_tab          &alt_tab           &kp LS(LC(TAB))    &kp LC(TAB)        &kp LS(LC(LA(P)))
-#define ML_NAV        &sk LGUI          &sk LALT           &sk LCTRL          &sk LSHFT          &kp LS(LC(LA(X)))
+#define ML_NAV        &kp LGUI          &kp LALT           &kp LCTRL          &kp LSHFT          &kp LS(LC(LA(X)))
 #define BL_NAV        &kp LG(SPACE)     &kp LA(SPACE)      &kp LC(SPACE)      &lm NUM_L LSHFT    &kp LS(LC(LA(SPACE)))
 #define TR_NAV        &kp CAPS          &kp HOME           &kp UARW           &kp END            &kp RET
 #define MR_NAV        &kp TAB           &kp LARW           &kp DARW           &kp RARW           &caps_word
@@ -47,7 +47,7 @@
 
 // num layer
 #define TL_NUM        &none             &none       &none      &none       &none
-#define ML_NUM        &sk LGUI          &sk LALT    &sk LCTRL  &sk LSHFT   &none
+#define ML_NUM        &kp LGUI          &kp LALT    &kp LCTRL  &kp LSHFT   &none
 #define BL_NUM        &none             &none       &none      &trans      &none
 #define TR_NUM        &kp SLASH         &kp N7      &kp N8     &kp N9      &kp RET
 #define MR_NUM        &kp STAR          &kp N4      &kp N5     &kp N6      &kp PLUS
@@ -61,7 +61,7 @@
 #define ML_FUN        &kp F11     &kp F4      &kp F5       &kp F6          &kp C_BRI_UP
 #define BL_FUN        &kp F12     &kp F1      &kp F2       &kp F3          &kp C_BRI_DN
 #define TR_FUN        &bt BT_CLR      &bt BT_SEL 0    &bt BT_SEL 1   &bt BT_SEL 2    &out OUT_BLE
-#define MR_FUN        &bootloader     &sk RSHFT       &sk RCTRL      &sk LALT        &sk RGUI
+#define MR_FUN        &bootloader     &kp RSHFT       &kp RCTRL      &kp LALT        &kp RGUI
 #define BR_FUN        RESET_BEHAVIOR  &kp C_MUTE      &kp C_VOL_DN   &kp C_VOL_UP    &out OUT_USB
 
 #define THUMBL_FUN    &kp HYPR    &kp SPACE
